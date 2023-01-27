@@ -19,3 +19,7 @@ def index(request):
             "description" : str(list_of_data["weather"][0]["description"]),
             "icon" : list_of_data["weather"][0]["icon"]
         }
+        print(data)
+    else:
+        data = {}
+    return render(request,'home.html', data)
