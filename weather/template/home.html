@@ -1,11 +1,6 @@
-<form method='POST'>
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="exampleInputEmail1">Enter City</label>
-      <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+{% extends 'base.html' %}
+{% block title %}Check Weather{% endblock title %}
+{% block body %}
 <h4>Country Code: {{country_code}}</h3>
 <h4>Coordinates: {{coordinates}}</h4>
 <h4>Temperature: {{temp}}</h4>
@@ -14,3 +9,4 @@
 <h4>Main: {{main}}</h4>
 <h4>Description: {{description}}</h4>
 <img src = "http://openweathermap.org/img/w/{{icon}}.png" alt="">
+{% endblock body %}
