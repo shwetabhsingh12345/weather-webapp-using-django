@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Not found{% endblock title %}
-{% block body %}<h4>Country Code: Not Found</h3>
-    <h4>Coordinates: NA</h4>
-    <h4>Temperature: NA</h4>
-    <h4>Pressure: NA</h4>
-    <h4>Humidity: NA</h4>
-    <h4>Main: NA</h4>
-    <h4>Description: NA</h4>
-    <img src = "http://openweathermap.org/img/w/{{icon}}.png" alt="">
+{% block title %}{{error_city}}{% endblock title %}
+{% block body %}
+<h4>Country Code: Not Found</h3>
+<h4>Coordinates: NA</h4>
+<h4>Temperature: NA</h4>
+<h4>Pressure: NA</h4>
+<h4>Humidity: NA</h4>
+<h4>Main: NA</h4>
+<h4>Description: NA</h4>
+<img src = "http://openweathermap.org/img/w/{{icon}}.png" alt="">
 {% endblock body %}
