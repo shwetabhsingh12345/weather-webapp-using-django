@@ -6,9 +6,9 @@ import urllib.request
 def index(request):
     if request.method == 'POST':
         city = request.POST['city']
-        source = urllib.request.urlopen("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=569aa4697bdc9cb76feec2d87370aeef&units=metric").read()
+        new_city = city.replace(" ","+")
+        source = urllib.request.urlopen("https://api.openweathermap.org/data/2.5/weather?q=" + new_city + "&appid=569aa4697bdc9cb76feec2d87370aeef&units=metric").read()
         list_of_data = json.loads(source)
-
         data = {
             "country_code" : str(list_of_data["sys"]["country"]),
             "coordinates" : str(list_of_data["coord"]["lon"]) + ',' + str(list_of_data["coord"]["lat"]),
