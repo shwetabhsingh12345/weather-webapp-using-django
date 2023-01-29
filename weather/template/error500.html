@@ -1,0 +1,16 @@
+<form method='POST'>
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Enter City</label>
+      <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+<h4>Country Code: Not Found</h3>
+<h4>Coordinates: NA</h4>
+<h4>Temperature: NA</h4>
+<h4>Pressure: NA</h4>
+<h4>Humidity: NA</h4>
+<h4>Main: NA</h4>
+<h4>Description: NA</h4>
+<img src = "http://openweathermap.org/img/w/{{icon}}.png" alt="">

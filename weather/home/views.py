@@ -23,3 +23,6 @@ def index(request):
     else:
         data = {}
     return render(request,'home.html', data)
+
+def errorpage(request):
+    return render(request,'error500.html')
