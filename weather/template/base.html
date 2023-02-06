@@ -1,12 +1,47 @@
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous">
+</script>
 <title>Weather{% block title %}{% endblock title %}</title>
 <body>
-    <form method='POST'>
+    <form id="post-form">
         {% csrf_token %}
         <div class="form-group">
           <label for="exampleInputEmail1">Enter City</label>
           <input type="text" class="form-control" id="city" name="city" placeholder="Enter City">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="sub_but" type="submit" class="btn btn-primary">Submit</button>
       </form>
       {% block body %}{%endblock body %}
 </body>
+
+<!-- AJAX IMPLIMENTATION WITH LIMITED BUTTON PRESS -->
+
+<script>
+    let c =5;
+    function myfunc(){
+        c-=1;
+        if(c>0){
+            document.getElementById("sub_but").innerHTML = c;
+        }
+        else{
+            document.getElementById("sub_but").disabled = true;
+        }
+
+    }
+        document.getElementById("sub_but").addEventListener('click',function(){
+            myfunc();
+        });
+
+    $(document).on('submit', '#post-form', function (e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '/index',
+            data: {
+                city: $('#city').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+            },
+        })
+    })
+    </script>
